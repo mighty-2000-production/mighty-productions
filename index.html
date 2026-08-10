@@ -23,7 +23,7 @@
 
     .navbar {
         background: #09070a;
-        padding: 20px 7%;
+        padding: 12px 7%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -31,6 +31,18 @@
         top: 0;
         z-index: 1000;
         border-bottom: 1px solid #8d6b22;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .brand-logo {
+        width: 58px;
+        height: 58px;
+        object-fit: contain;
     }
 
     .logo {
@@ -374,6 +386,15 @@
             gap: 15px;
         }
 
+        .brand-logo {
+            width: 52px;
+            height: 52px;
+        }
+
+        .logo {
+            font-size: 20px;
+        }
+
         nav a {
             margin: 0 7px;
             font-size: 13px;
@@ -421,8 +442,17 @@
 
 <header class="navbar">
 
-    <div class="logo">
-        Mighty Productions
+    <div class="brand">
+
+        <img
+            class="brand-logo"
+            src="file_00000000062881f4a1e30f44aa45daa7.png"
+            alt="Mighty Productions Logo">
+
+        <div class="logo">
+            Mighty Productions
+        </div>
+
     </div>
 
     <nav>
@@ -479,8 +509,6 @@
     </p>
 
     <div class="books-container">
-
-        <!-- DEFIANT HEARTS -->
 
         <article class="book-card">
 
