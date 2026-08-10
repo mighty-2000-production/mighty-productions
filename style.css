@@ -1,0 +1,687 @@
+/* =========================
+   BASIC SETTINGS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    background-color: #0d0d0d;
+
+    color: white;
+
+    line-height: 1.7;
+
+}
+
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 20px 8%;
+
+    background-color: #090909;
+
+    border-bottom: 1px solid #333;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+
+.logo {
+
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: #d4af37;
+
+}
+
+
+nav {
+
+    display: flex;
+
+    gap: 25px;
+
+}
+
+
+nav a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    transition: 0.3s;
+
+}
+
+
+nav a:hover {
+
+    color: #d4af37;
+
+}
+
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 90vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            #302817,
+            #0d0d0d 65%
+        );
+
+}
+
+
+.hero-content {
+
+    max-width: 850px;
+
+}
+
+
+.welcome {
+
+    color: #d4af37;
+
+    letter-spacing: 5px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+}
+
+
+.hero h1 {
+
+    font-size: 65px;
+
+    margin: 15px 0;
+
+    line-height: 1.1;
+
+}
+
+
+.tagline {
+
+    font-size: 21px;
+
+    color: #d0d0d0;
+
+    max-width: 650px;
+
+    margin: 0 auto 35px;
+
+}
+
+
+.hero-button {
+
+    display: inline-block;
+
+    padding: 15px 30px;
+
+    background-color: #d4af37;
+
+    color: #111;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: bold;
+
+    border-radius: 5px;
+
+    transition: 0.3s;
+
+}
+
+
+.hero-button:hover {
+
+    background-color: white;
+
+    transform: translateY(-2px);
+
+}
+
+
+
+/* =========================
+   BOOKS SECTION
+========================= */
+
+.books-section {
+
+    padding: 100px 8%;
+
+    text-align: center;
+
+    background-color: #151515;
+
+}
+
+
+.section-label {
+
+    color: #d4af37;
+
+    letter-spacing: 4px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+}
+
+
+.books-section h2,
+.about-section h2,
+.contact-section h2 {
+
+    font-size: 42px;
+
+    margin: 10px 0 15px;
+
+}
+
+
+.section-description {
+
+    color: #aaa;
+
+    max-width: 650px;
+
+    margin: auto;
+
+}
+
+
+.books-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 35px;
+
+    flex-wrap: wrap;
+
+    margin-top: 50px;
+
+}
+
+
+
+/* =========================
+   BOOK CARD
+========================= */
+
+.book-card {
+
+    width: 330px;
+
+    background-color: #202020;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    text-align: left;
+
+    border: 1px solid #333;
+
+    transition: 0.3s;
+
+}
+
+
+.book-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #d4af37;
+
+}
+
+
+
+/* BOOK COVER */
+
+.book-cover {
+
+    height: 430px;
+
+    background-color: #292929;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+.cover-placeholder {
+
+    width: 75%;
+
+    height: 88%;
+
+    border: 3px solid #d4af37;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #3b321e,
+            #111
+        );
+
+}
+
+
+.cover-placeholder span {
+
+    color: #d4af37;
+
+    letter-spacing: 4px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+}
+
+
+.cover-placeholder strong {
+
+    font-size: 35px;
+
+    margin: 15px 0;
+
+}
+
+
+.cover-placeholder small {
+
+    color: #ccc;
+
+}
+
+
+
+/* BOOK INFORMATION */
+
+.book-info {
+
+    padding: 25px;
+
+}
+
+
+.book-info h3 {
+
+    font-size: 27px;
+
+}
+
+
+.author {
+
+    color: #d4af37;
+
+    margin: 5px 0 15px;
+
+}
+
+
+.publisher {
+
+    color: #888;
+
+    font-size: 13px;
+
+    margin-top: 10px;
+
+}
+
+
+.read-button,
+.contact-button {
+
+    margin-top: 20px;
+
+    padding: 12px 22px;
+
+    border: none;
+
+    background-color: #d4af37;
+
+    color: #111;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    border-radius: 4px;
+
+    font-family: Arial, sans-serif;
+
+    transition: 0.3s;
+
+}
+
+
+.read-button:hover,
+.contact-button:hover {
+
+    background-color: white;
+
+}
+
+
+
+/* =========================
+   BOOK INFORMATION BOX
+========================= */
+
+.book-info-box {
+
+    display: none;
+
+    max-width: 750px;
+
+    margin: 50px auto 0;
+
+    padding: 40px;
+
+    background-color: #202020;
+
+    border: 1px solid #d4af37;
+
+    border-radius: 10px;
+
+    text-align: left;
+
+}
+
+
+.book-info-box h2 {
+
+    color: #d4af37;
+
+    font-size: 35px;
+
+}
+
+
+.close-button {
+
+    float: right;
+
+    background: none;
+
+    border: none;
+
+    color: white;
+
+    font-size: 32px;
+
+    cursor: pointer;
+
+}
+
+
+.close-button:hover {
+
+    color: #d4af37;
+
+}
+
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-section {
+
+    padding: 100px 10%;
+
+    text-align: center;
+
+    background-color: #0d0d0d;
+
+}
+
+
+.about-section p:not(.section-label) {
+
+    max-width: 750px;
+
+    margin: 15px auto;
+
+    color: #ccc;
+
+}
+
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-section {
+
+    padding: 100px 20px;
+
+    text-align: center;
+
+    background-color: #151515;
+
+}
+
+
+.contact-section p {
+
+    color: #ccc;
+
+}
+
+
+.contact-message {
+
+    display: none;
+
+    margin: 25px auto 0;
+
+    max-width: 500px;
+
+    padding: 20px;
+
+    border: 1px solid #444;
+
+    background-color: #202020;
+
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    background-color: #070707;
+
+}
+
+
+footer h3 {
+
+    color: #d4af37;
+
+    font-size: 25px;
+
+}
+
+
+footer p {
+
+    color: #888;
+
+    margin-top: 10px;
+
+}
+
+
+
+/* =========================
+   MOBILE PHONE
+========================= */
+
+@media (max-width: 700px) {
+
+
+    .navbar {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+    }
+
+
+    nav {
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+
+    .hero {
+
+        min-height: 80vh;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 42px;
+
+    }
+
+
+    .tagline {
+
+        font-size: 17px;
+
+    }
+
+
+    .books-section h2,
+    .about-section h2,
+    .contact-section h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .book-card {
+
+        width: 100%;
+
+        max-width: 350px;
+
+    }
+
+
+    .book-info-box {
+
+        padding: 25px;
+
+    }
+
+}
