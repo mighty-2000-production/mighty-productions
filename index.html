@@ -1,736 +1,768 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Mighty Productions | Storybooks</title>
 
-    <title>Mighty Productions | Storybooks</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    html {
+        scroll-behavior: smooth;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    body {
+        font-family: Georgia, "Times New Roman", serif;
+        background: #100b12;
+        color: white;
+    }
 
-        body {
-            font-family: Georgia, "Times New Roman", serif;
-            background: #100b12;
-            color: white;
-        }
+    /* NAVIGATION */
 
-        /* NAVIGATION */
+    .navbar {
+        background: #09070a;
+        padding: 20px 7%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid #8d6b22;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #e5b84b;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 15px;
+    }
+
+    nav a:hover {
+        color: #e5b84b;
+    }
+
+    /* HERO */
+
+    .hero {
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 50px 20px;
+
+        background:
+            linear-gradient(
+                rgba(10, 5, 12, 0.65),
+                rgba(10, 5, 12, 0.9)
+            ),
+            url("images/defiant-hearts.png");
+
+        background-size: cover;
+        background-position: center;
+    }
+
+    .hero-content {
+        max-width: 800px;
+    }
+
+    .welcome {
+        color: #e5b84b;
+        letter-spacing: 5px;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+
+    .tagline {
+        font-size: 21px;
+        line-height: 1.7;
+        margin-bottom: 35px;
+    }
+
+    .hero-button,
+    .read-button,
+    .contact-button {
+        display: inline-block;
+        background: #b88727;
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .hero-button:hover,
+    .read-button:hover,
+    .contact-button:hover {
+        background: #d5a63d;
+    }
+
+    /* BOOKS */
+
+    .books-section {
+        padding: 80px 7%;
+        text-align: center;
+    }
+
+    .section-label {
+        color: #e5b84b;
+        letter-spacing: 4px;
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+
+    .books-section h2,
+    .about-section h2,
+    .contact-section h2 {
+        font-size: 40px;
+        margin-bottom: 18px;
+    }
+
+    .section-description {
+        color: #c9c1c9;
+        max-width: 650px;
+        margin: auto;
+        line-height: 1.7;
+    }
+
+    /* BOOK CARD */
+
+    .books-container {
+        display: flex;
+        justify-content: center;
+        gap: 35px;
+        flex-wrap: wrap;
+        margin-top: 50px;
+    }
+
+    .book-card {
+        background: #1b141d;
+        width: 340px;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #3d303e;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .book-cover {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 6px;
+        margin-bottom: 25px;
+    }
+
+    .book-cover img {
+        width: 100%;
+        display: block;
+        height: auto;
+    }
+
+    .book-info h3 {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+
+    .author {
+        color: #e5b84b;
+        margin-bottom: 15px;
+    }
+
+    .book-info p {
+        color: #d2cbd2;
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+
+    .publisher {
+        font-size: 14px;
+    }
+
+    /* BOOK INFORMATION */
+
+    .book-info-box {
+        display: none;
+        max-width: 750px;
+        margin: 50px auto 0;
+        padding: 35px;
+        background: #1b141d;
+        border: 1px solid #8d6b22;
+        border-radius: 10px;
+        text-align: left;
+    }
+
+    .book-info-box h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    .book-info-box p {
+        line-height: 1.8;
+        color: #ddd;
+        margin-bottom: 15px;
+    }
+
+    .close-button {
+        float: right;
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    /* EXCERPT READER */
+
+    #excerpt-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 3, 6, 0.97);
+        z-index: 2000;
+        overflow-y: auto;
+        padding: 25px 15px 50px;
+    }
+
+    .excerpt-box {
+        max-width: 760px;
+        min-height: 90vh;
+        margin: 10px auto;
+        padding: 55px 50px;
+        background: #f3ead8;
+        color: #2a2025;
+        border-radius: 4px;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    .excerpt-box h2 {
+        text-align: center;
+        color: #5b2020;
+        font-size: 42px;
+        margin-bottom: 8px;
+    }
+
+    .excerpt-box .author {
+        text-align: center;
+        color: #8d6b22;
+        font-style: italic;
+        margin-bottom: 45px;
+    }
+
+    .excerpt-box h3 {
+        text-align: center;
+        color: #5b2020;
+        font-size: 28px;
+        margin-bottom: 35px;
+        letter-spacing: 1px;
+    }
+
+    .excerpt-box p {
+        color: #30272b;
+        font-size: 18px;
+        line-height: 2;
+        text-align: justify;
+        margin-bottom: 28px;
+    }
+
+    .excerpt-box p::first-letter {
+        font-size: 34px;
+        font-weight: bold;
+        color: #8d6b22;
+    }
+
+    .excerpt-box .end-excerpt {
+        text-align: center;
+        margin-top: 45px;
+        color: #8d6b22;
+    }
+
+    .excerpt-box .end-excerpt::first-letter {
+        font-size: 18px;
+        font-weight: normal;
+    }
+
+    .excerpt-box button {
+        display: block;
+        margin: 40px auto 0;
+        background: #5b2020;
+        color: white;
+        border: none;
+        padding: 13px 28px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .excerpt-box button:hover {
+        background: #7b2d2d;
+    }
+
+    /* ABOUT */
+
+    .about-section {
+        padding: 90px 10%;
+        text-align: center;
+        background: #171017;
+    }
+
+    .about-section p:not(.section-label) {
+        max-width: 750px;
+        margin: 20px auto;
+        color: #d2cbd2;
+        line-height: 1.9;
+        font-size: 17px;
+    }
+
+    /* CONTACT */
+
+    .contact-section {
+        padding: 90px 10%;
+        text-align: center;
+    }
+
+    .contact-section p {
+        color: #d2cbd2;
+        margin-bottom: 25px;
+    }
+
+    .contact-message {
+        display: none;
+        margin-top: 25px;
+        color: #e5b84b;
+    }
+
+    /* FOOTER */
+
+    footer {
+        background: #09070a;
+        text-align: center;
+        padding: 45px 20px;
+        border-top: 1px solid #3d303e;
+    }
+
+    footer h3 {
+        color: #e5b84b;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    footer p {
+        color: #aaa;
+        margin: 8px;
+    }
+
+    /* PHONE */
+
+    @media (max-width: 700px) {
 
         .navbar {
-            background: #09070a;
-            padding: 20px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #8d6b22;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #e5b84b;
+            flex-direction: column;
+            gap: 15px;
         }
 
         nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 15px;
-        }
-
-        nav a:hover {
-            color: #e5b84b;
-        }
-
-
-        /* HERO */
-
-        .hero {
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 50px 20px;
-
-            background:
-                linear-gradient(
-                    rgba(10, 5, 12, 0.65),
-                    rgba(10, 5, 12, 0.9)
-                ),
-                url("images/defiant-hearts.png");
-
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .welcome {
-            color: #e5b84b;
-            letter-spacing: 5px;
-            font-size: 14px;
-            margin-bottom: 20px;
+            margin: 0 7px;
+            font-size: 13px;
         }
 
         .hero h1 {
-            font-size: 60px;
-            margin-bottom: 20px;
+            font-size: 42px;
         }
 
         .tagline {
-            font-size: 21px;
-            line-height: 1.7;
-            margin-bottom: 35px;
-        }
-
-        .hero-button,
-        .read-button,
-        .contact-button {
-            display: inline-block;
-            background: #b88727;
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .hero-button:hover,
-        .read-button:hover,
-        .contact-button:hover {
-            background: #d5a63d;
-        }
-
-
-        /* BOOKS */
-
-        .books-section {
-            padding: 80px 7%;
-            text-align: center;
-        }
-
-        .section-label {
-            color: #e5b84b;
-            letter-spacing: 4px;
-            font-size: 13px;
-            margin-bottom: 12px;
+            font-size: 17px;
         }
 
         .books-section h2,
         .about-section h2,
         .contact-section h2 {
-            font-size: 40px;
-            margin-bottom: 18px;
-        }
-
-        .section-description {
-            color: #c9c1c9;
-            max-width: 650px;
-            margin: auto;
-            line-height: 1.7;
-        }
-
-
-        /* BOOK CARD */
-
-        .books-container {
-            display: flex;
-            justify-content: center;
-            gap: 35px;
-            flex-wrap: wrap;
-            margin-top: 50px;
+            font-size: 32px;
         }
 
         .book-card {
-            background: #1b141d;
-            width: 340px;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #3d303e;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-
-        .book-cover {
             width: 100%;
-            overflow: hidden;
-            border-radius: 6px;
-            margin-bottom: 25px;
-        }
-
-        .book-cover img {
-            width: 100%;
-            display: block;
-            height: auto;
-        }
-
-        .book-info h3 {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .author {
-            color: #e5b84b;
-            margin-bottom: 15px;
-        }
-
-        .book-info p {
-            color: #d2cbd2;
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-
-        .publisher {
-            font-size: 14px;
-        }
-
-
-        /* BOOK INFORMATION */
-
-        .book-info-box {
-            display: none;
-            max-width: 750px;
-            margin: 50px auto 0;
-            padding: 35px;
-            background: #1b141d;
-            border: 1px solid #8d6b22;
-            border-radius: 10px;
-            text-align: left;
-        }
-
-        .book-info-box h2 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .book-info-box p {
-            line-height: 1.8;
-            color: #ddd;
-            margin-bottom: 15px;
-        }
-
-        .close-button {
-            float: right;
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-        }
-
-
-        /* EXCERPT READER */
-
-        #excerpt-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(5, 3, 6, 0.97);
-            z-index: 2000;
-            overflow-y: auto;
-            padding: 25px 15px 50px;
+            max-width: 360px;
         }
 
         .excerpt-box {
-            max-width: 760px;
-            min-height: 90vh;
-            margin: 10px auto;
-            padding: 55px 50px;
-            background: #f3ead8;
-            color: #2a2025;
-            border-radius: 4px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
+            padding: 35px 22px;
         }
 
         .excerpt-box h2 {
-            text-align: center;
-            color: #5b2020;
-            font-size: 42px;
-            margin-bottom: 8px;
-        }
-
-        .excerpt-box .author {
-            text-align: center;
-            color: #8d6b22;
-            font-style: italic;
-            margin-bottom: 45px;
+            font-size: 32px;
         }
 
         .excerpt-box h3 {
-            text-align: center;
-            color: #5b2020;
-            font-size: 28px;
-            margin-bottom: 35px;
-            letter-spacing: 1px;
+            font-size: 23px;
         }
 
         .excerpt-box p {
-            color: #30272b;
-            font-size: 18px;
-            line-height: 2;
-            text-align: justify;
-            margin-bottom: 28px;
-        }
-
-        .excerpt-box p::first-letter {
-            font-size: 34px;
-            font-weight: bold;
-            color: #8d6b22;
-        }
-
-        .excerpt-box .end-excerpt {
-            text-align: center;
-            margin-top: 45px;
-            color: #8d6b22;
-        }
-
-        .excerpt-box .end-excerpt::first-letter {
-            font-size: 18px;
-            font-weight: normal;
-        }
-
-        .excerpt-box button {
-            display: block;
-            margin: 40px auto 0;
-            background: #5b2020;
-            color: white;
-            border: none;
-            padding: 13px 28px;
-            border-radius: 5px;
-            cursor: pointer;
             font-size: 16px;
-        }
-
-        .excerpt-box button:hover {
-            background: #7b2d2d;
-        }
-
-
-        /* ABOUT */
-
-        .about-section {
-            padding: 90px 10%;
-            text-align: center;
-            background: #171017;
-        }
-
-        .about-section p:not(.section-label) {
-            max-width: 750px;
-            margin: 20px auto;
-            color: #d2cbd2;
             line-height: 1.9;
-            font-size: 17px;
         }
+    }
+</style>
 
+</head><body><!-- NAVIGATION -->
 
-        /* CONTACT */
+<header class="navbar">
 
-        .contact-section {
-            padding: 90px 10%;
-            text-align: center;
-        }
+    <div class="logo">
+        Mighty Productions
+    </div>
 
-        .contact-section p {
-            color: #d2cbd2;
-            margin-bottom: 25px;
-        }
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#books">Books</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-        .contact-message {
-            display: none;
-            margin-top: 25px;
-            color: #e5b84b;
-        }
+</header>
 
+<!-- HERO -->
 
-        /* FOOTER */
+<section id="home" class="hero">
 
-        footer {
-            background: #09070a;
-            text-align: center;
-            padding: 45px 20px;
-            border-top: 1px solid #3d303e;
-        }
+    <div class="hero-content">
 
-        footer h3 {
-            color: #e5b84b;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
+        <p class="welcome">
+            WELCOME TO
+        </p>
 
-        footer p {
-            color: #aaa;
-            margin: 8px;
-        }
-
-
-        /* PHONE */
-
-        @media (max-width: 700px) {
-
-            .navbar {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav a {
-                margin: 0 7px;
-                font-size: 13px;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .tagline {
-                font-size: 17px;
-            }
-
-            .books-section h2,
-            .about-section h2,
-            .contact-section h2 {
-                font-size: 32px;
-            }
-
-            .book-card {
-                width: 100%;
-                max-width: 360px;
-            }
-
-            .excerpt-box {
-                padding: 35px 22px;
-            }
-
-            .excerpt-box h2 {
-                font-size: 32px;
-            }
-
-            .excerpt-box h3 {
-                font-size: 23px;
-            }
-
-            .excerpt-box p {
-                font-size: 16px;
-                line-height: 1.9;
-            }
-        }
-    </style>
-
-</head>
-
-
-<body>
-
-
-    <!-- NAVIGATION -->
-
-    <header class="navbar">
-
-        <div class="logo">
+        <h1>
             Mighty Productions
-        </div>
+        </h1>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#books">Books</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-    </header>
-
-
-
-    <!-- HERO -->
-
-    <section id="home" class="hero">
-
-        <div class="hero-content">
-
-            <p class="welcome">
-                WELCOME TO
-            </p>
-
-            <h1>
-                Mighty Productions
-            </h1>
-
-            <p class="tagline">
-                Stories that touch the heart,
-                inspire the mind and stay forever.
-            </p>
-
-            <a href="#books" class="hero-button">
-                Explore Our Books
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- BOOKS -->
-
-    <section id="books" class="books-section">
-
-        <p class="section-label">
-            OUR COLLECTION
+        <p class="tagline">
+            Stories that touch the heart,
+            inspire the mind and stay forever.
         </p>
 
-        <h2>
-            Featured Storybooks
-        </h2>
+        <a href="#books" class="hero-button">
+            Explore Our Books
+        </a>
 
-        <p class="section-description">
-            Discover powerful stories filled with
-            love, courage, friendship and emotion.
-        </p>
+    </div>
 
+</section>
 
-        <div class="books-container">
+<!-- BOOKS -->
 
+<section id="books" class="books-section">
 
-            <!-- DEFIANT HEARTS -->
+    <p class="section-label">
+        OUR COLLECTION
+    </p>
 
-            <article class="book-card">
+    <h2>
+        Featured Storybooks
+    </h2>
 
-                <div class="book-cover">
+    <p class="section-description">
+        Discover powerful stories filled with
+        love, courage, friendship and emotion.
+    </p>
 
-                    <img
-                        src="images/defiant-hearts.png"
-                        alt="Cover of Defiant Hearts by Nosretep">
+    <div class="books-container">
 
-                </div>
+        <!-- DEFIANT HEARTS -->
 
+        <article class="book-card">
 
-                <div class="book-info">
+            <div class="book-cover">
 
-                    <h3>
-                        Defiant Hearts
-                    </h3>
+                <img
+                    src="images/defiant-hearts.png"
+                    alt="Cover of Defiant Hearts by Nosretep">
 
-                    <p class="author">
-                        By Nosretep
-                    </p>
+            </div>
 
-                    <p>
-                        A powerful story of love,
-                        courage, struggle, sacrifice
-                        and determination.
-                    </p>
+            <div class="book-info">
 
-                    <p class="publisher">
-                        Published by Mighty Productions
-                    </p>
+                <h3>
+                    Defiant Hearts
+                </h3>
 
-                    <button
-                        class="read-button"
-                        onclick="showBookInfo()">
+                <p class="author">
+                    By Nosretep
+                </p>
 
-                        Read More
+                <p>
+                    A powerful story of love,
+                    courage, struggle, sacrifice
+                    and determination.
+                </p>
 
-                    </button>
+                <p class="publisher">
+                    Published by Mighty Productions
+                </p>
 
-                </div>
+                <button
+                    class="read-button"
+                    onclick="showBookInfo()">
 
-            </article>
+                    Read More
 
+                </button>
 
-        </div>
+            </div>
 
+        </article>
 
+    </div>
 
-        <!-- BOOK INFORMATION -->
+    <!-- BOOK INFORMATION -->
 
-        <div
-            id="bookInfo"
-            class="book-info-box">
-
-            <button
-                class="close-button"
-                onclick="hideBookInfo()">
-
-                ×
-
-            </button>
-
-            <h2>
-                Defiant Hearts
-            </h2>
-
-            <p class="author">
-                By Nosretep
-            </p>
-
-            <p class="publisher">
-                Published by Mighty Productions
-            </p>
-
-            <p>
-                <strong>About the book:</strong>
-            </p>
-
-            <p>
-                Defiant Hearts is a powerful emotional
-                story exploring love, courage, struggle,
-                sacrifice and determination.
-            </p>
-
-            <p>
-                Follow the journey of characters who
-                face difficult situations while trying
-                to protect their dreams, relationships
-                and hope.
-            </p>
-
-            <button
-                class="read-button"
-                onclick="readExcerpt()">
-
-                Read an Excerpt
-
-            </button>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ABOUT -->
-
-    <section id="about" class="about-section">
-
-        <p class="section-label">
-            OUR STORY
-        </p>
-
-        <h2>
-            About Mighty Productions
-        </h2>
-
-        <p>
-            Mighty Productions is a creative platform
-            dedicated to bringing meaningful, emotional
-            and inspiring stories to readers.
-        </p>
-
-        <p>
-            Every story has a voice.
-            Every character has a journey.
-            Every page has the power to make
-            someone feel something.
-        </p>
-
-    </section>
-
-
-
-    <!-- CONTACT -->
-
-    <section id="contact" class="contact-section">
-
-        <p class="section-label">
-            GET IN TOUCH
-        </p>
-
-        <h2>
-            Contact Mighty Productions
-        </h2>
-
-        <p>
-            Have a question, suggestion or story
-            you'd like to share?
-        </p>
+    <div
+        id="bookInfo"
+        class="book-info-box">
 
         <button
-            class="contact-button"
-            onclick="showContact()">
+            class="close-button"
+            onclick="hideBookInfo()">
 
-            Contact Us
+            ×
 
         </button>
 
-        <div
-            id="contactMessage"
-            class="contact-message">
+        <h2>
+            Defiant Hearts
+        </h2>
 
-            <p>
-                Contact information will be added soon.
-            </p>
+        <p class="author">
+            By Nosretep
+        </p>
 
-        </div>
+        <p class="publisher">
+            Published by Mighty Productions
+        </p>
 
-    </section>
+        <p>
+            <strong>About the book:</strong>
+        </p>
 
+        <p>
+            Defiant Hearts is a powerful emotional
+            story exploring love, courage, struggle,
+            sacrifice and determination.
+        </p>
 
+        <p>
+            Follow the journey of characters who
+            face difficult situations while trying
+            to protect their dreams, relationships
+            and hope.
+        </p>
 
-    <!-- FOOTER -->
+        <button
+            class="read-button"
+            onclick="readExcerpt()">
 
-    <footer>
+            Read an Excerpt
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- EXCERPT READER -->
+
+<div
+    id="excerpt-overlay"
+    style="display: none;">
+
+    <div class="excerpt-box">
+
+        <h2>
+            Defiant Hearts
+        </h2>
+
+        <p class="author">
+            By Nosretep
+        </p>
 
         <h3>
-            Mighty Productions
+            Chapter One
         </h3>
 
         <p>
-            Stories that touch the heart.
+            The evening sky was slowly turning dark as the last
+            rays of sunlight disappeared beyond the horizon.
+            Somewhere in the distance, the sound of footsteps
+            echoed through the quiet street.
         </p>
 
         <p>
-            © 2026 Mighty Productions.
-            All rights reserved.
+            She stood there silently, holding back the tears
+            that had been gathering in her eyes. Life had never
+            been easy for her, but she had learned one important
+            lesson: sometimes the heart must remain strong even
+            when everything around you seems to be falling apart.
         </p>
 
-    </footer>
+        <p>
+            She took a deep breath and looked ahead. She knew
+            that whatever happened next would change everything.
+            There was fear in her heart, but there was also
+            something stronger — determination.
+        </p>
 
+        <p>
+            Somewhere beyond the darkness was a new beginning,
+            and she was determined to find it.
+        </p>
 
+        <p class="end-excerpt">
+            — End of Excerpt —
+        </p>
 
-    <!-- JAVASCRIPT -->
+        <button onclick="closeExcerpt()">
+            Close Excerpt
+        </button>
 
-    <script>
+    </div>
 
-        function showBookInfo() {
+</div>
 
-            document.getElementById("bookInfo").style.display = "block";
+<!-- ABOUT -->
 
-        }
+<section id="about" class="about-section">
 
+    <p class="section-label">
+        OUR STORY
+    </p>
 
-        function hideBookInfo() {
+    <h2>
+        About Mighty Productions
+    </h2>
 
-            document.getElementById("bookInfo").style.display = "none";
+    <p>
+        Mighty Productions is a creative platform
+        dedicated to bringing meaningful, emotional
+        and inspiring stories to readers.
+    </p>
 
-        }
+    <p>
+        Every story has a voice.
+        Every character has a journey.
+        Every page has the power to make
+        someone feel something.
+    </p>
 
+</section>
 
-        function showContact() {
+<!-- CONTACT -->
 
-            document.getElementById("contactMessage").style.display = "block";
+<section id="contact" class="contact-section">
 
-        }
+    <p class="section-label">
+        GET IN TOUCH
+    </p>
 
-    </script>
+    <h2>
+        Contact Mighty Productions
+    </h2>
 
-    <script src="./script.js"></script>
+    <p>
+        Have a question, suggestion or story
+        you'd like to share?
+    </p>
 
+    <button
+        class="contact-button"
+        onclick="showContact()">
 
-</body>
+        Contact Us
 
-</html>
+    </button>
+
+    <div
+        id="contactMessage"
+        class="contact-message">
+
+        <p>
+            Contact information will be added soon.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>
+        Mighty Productions
+    </h3>
+
+    <p>
+        Stories that touch the heart.
+    </p>
+
+    <p>
+        © 2026 Mighty Productions.
+        All rights reserved.
+    </p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+    function showBookInfo() {
+
+        document.getElementById("bookInfo").style.display = "block";
+
+    }
+
+    function hideBookInfo() {
+
+        document.getElementById("bookInfo").style.display = "none";
+
+    }
+
+    function showContact() {
+
+        document.getElementById("contactMessage").style.display = "block";
+
+    }
+
+    function readExcerpt() {
+
+        document.getElementById("excerpt-overlay").style.display = "block";
+
+        document.body.style.overflow = "hidden";
+
+    }
+
+    function closeExcerpt() {
+
+        document.getElementById("excerpt-overlay").style.display = "none";
+
+        document.body.style.overflow = "auto";
+
+    }
+
+</script>
+
+<script src="./script.js"></script>
+
+</body></html>
