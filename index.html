@@ -89,28 +89,17 @@
             );
     }
 
-    /*
-       LARGE HERO LOGO
-    */
-
     .hero-logo {
         position: absolute;
-
         width: 700px;
         height: 700px;
-
         max-width: 90vw;
         max-height: 90vh;
-
         object-fit: contain;
-
         opacity: 0.30;
-
         top: 50%;
         left: 50%;
-
         transform: translate(-50%, -50%);
-
         pointer-events: none;
 
         filter: drop-shadow(
@@ -174,7 +163,7 @@
     ========================= */
 
     .books-section,
-    .author-section {
+    .authors-section {
         padding: 85px 7%;
         text-align: center;
     }
@@ -187,7 +176,7 @@
     }
 
     .books-section h2,
-    .author-section h2,
+    .authors-section h2,
     .about-section h2,
     .contact-section h2 {
         font-size: 40px;
@@ -217,11 +206,6 @@
         margin: 50px auto 0;
     }
 
-
-    /* =========================
-       BOOK CARD
-    ========================= */
-
     .book-card {
         background: #1b141d;
         padding: 20px;
@@ -231,8 +215,7 @@
         box-shadow:
             0 10px 30px rgba(0,0,0,0.4);
 
-        transition: transform 0.3s ease,
-                    border-color 0.3s ease;
+        transition: 0.3s ease;
     }
 
     .book-card:hover {
@@ -259,7 +242,7 @@
 
 
     /* =========================
-       COMING SOON CARDS
+       COMING SOON BOOKS
     ========================= */
 
     .coming-cover {
@@ -295,11 +278,6 @@
         margin-top: 8px;
     }
 
-
-    /* =========================
-       BOOK INFO
-    ========================= */
-
     .book-info h3 {
         font-size: 27px;
         margin-bottom: 8px;
@@ -333,7 +311,7 @@
 
 
     /* =========================
-       BOOK INFORMATION BOX
+       BOOK INFORMATION
     ========================= */
 
     .book-info-box {
@@ -434,7 +412,7 @@
 
 
     /* =========================
-       ABOUT
+       ABOUT MIGHTY PRODUCTIONS
     ========================= */
 
     .about-section {
@@ -453,54 +431,96 @@
 
 
     /* =========================
-       ABOUT AUTHOR
+       AUTHORS
     ========================= */
 
-    .author-section {
+    .authors-section {
         background: #100b12;
     }
 
-    .author-box {
-        max-width: 750px;
-        margin: 35px auto 0;
-        padding: 40px;
+    .authors-container {
+        display: grid;
+        grid-template-columns:
+            repeat(auto-fit, minmax(240px, 1fr));
 
+        gap: 30px;
+
+        max-width: 950px;
+        margin: 50px auto 0;
+    }
+
+    .author-card {
         background: #1b141d;
-
         border: 1px solid #3d303e;
         border-radius: 10px;
+        padding: 35px 25px;
 
         box-shadow:
             0 10px 30px rgba(0,0,0,0.35);
+
+        transition: 0.3s ease;
     }
 
-    .author-box h3 {
+    .author-card:hover {
+        transform: translateY(-6px);
+        border-color: #8d6b22;
+    }
+
+    .author-icon {
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+
+        border: 1px solid #8d6b22;
+
+        background: #100b12;
+
         color: #e5b84b;
-        font-size: 30px;
-        margin-bottom: 20px;
+
+        font-size: 38px;
     }
 
-    .author-box p {
+    .author-card h3 {
+        color: #e5b84b;
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+
+    .author-card p {
         color: #d2cbd2;
-        line-height: 1.9;
-        font-size: 17px;
+        line-height: 1.7;
         margin-bottom: 18px;
     }
 
-    .instagram-author {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 12px 22px;
-
-        background: #b88727;
-        color: white;
-
-        text-decoration: none;
-        border-radius: 5px;
+    .author-role {
+        color: #aaa !important;
+        font-size: 14px;
+        font-style: italic;
     }
 
-    .instagram-author:hover {
-        background: #d5a63d;
+    .author-button {
+        display: inline-block;
+        padding: 10px 20px;
+
+        border: 1px solid #8d6b22;
+        border-radius: 5px;
+
+        color: white;
+        text-decoration: none;
+
+        font-size: 14px;
+
+        transition: 0.3s ease;
+    }
+
+    .author-button:hover {
+        background: #b88727;
     }
 
 
@@ -594,7 +614,7 @@
         }
 
         nav a {
-            margin: 0 6px;
+            margin: 0 5px;
             font-size: 12px;
         }
 
@@ -621,13 +641,14 @@
         }
 
         .books-section h2,
-        .author-section h2,
+        .authors-section h2,
         .about-section h2,
         .contact-section h2 {
             font-size: 32px;
         }
 
-        .books-container {
+        .books-container,
+        .authors-container {
             grid-template-columns: 1fr;
             max-width: 360px;
         }
@@ -646,10 +667,6 @@
 
         .coming-soon-text {
             font-size: 17px;
-        }
-
-        .author-box {
-            padding: 28px 20px;
         }
 
         .social-button {
@@ -686,7 +703,7 @@
         <a href="#home">Home</a>
         <a href="#books">Books</a>
         <a href="#about">About</a>
-        <a href="#author">Author</a>
+        <a href="#authors">Authors</a>
         <a href="#contact">Contact</a>
 
     </nav>
@@ -775,7 +792,7 @@
     <div class="books-container">
 
 
-        <!-- BOOK ONE -->
+        <!-- DEFIANT HEARTS -->
 
         <article class="book-card">
 
@@ -838,12 +855,9 @@
 
         <article class="book-card">
 
-
             <div class="book-cover coming-cover">
 
-                <span>
-                    📖
-                </span>
+                <span>📖</span>
 
                 <strong>
                     COMING SOON
@@ -881,12 +895,9 @@
 
         <article class="book-card">
 
-
             <div class="book-cover coming-cover">
 
-                <span>
-                    📖
-                </span>
+                <span>📖</span>
 
                 <strong>
                     COMING SOON
@@ -924,12 +935,9 @@
 
         <article class="book-card">
 
-
             <div class="book-cover coming-cover">
 
-                <span>
-                    📖
-                </span>
+                <span>📖</span>
 
                 <strong>
                     COMING SOON
@@ -1028,6 +1036,7 @@
 
         </button>
 
+
     </div>
 
 </section>
@@ -1075,6 +1084,7 @@
 
         </button>
 
+
     </div>
 
 </div>
@@ -1109,29 +1119,4 @@
 
     <p>
         Every story has a voice.
-        Every character has a journey.
-        Every page has the power to make
-        someone feel something.
-    </p>
-
-
-</section>
-
-
-
-<!-- =========================
-     ABOUT AUTHOR
-========================= -->
-
-<section
-    id="author"
-    class="author-section">
-
-
-    <p class="section-label">
-        MEET THE AUTHOR
-    </p>
-
-
-    <h2>
-   
+  
