@@ -84,26 +84,31 @@
 
         background:
             linear-gradient(
-                rgba(10, 5, 12, 0.72),
+                rgba(10, 5, 12, 0.78),
                 rgba(10, 5, 12, 0.92)
-            ),
-            url("defiant-hearts%20(1).png");
+            );
 
-        background-size: cover;
-        background-position: center;
     }
+
+    /* LARGE LOGO IN HERO */
 
     .hero-logo {
         position: absolute;
+
         width: 520px;
         max-width: 80%;
-        opacity: 0.10;
+
+        opacity: 0.30;
+
         top: 50%;
         left: 50%;
+
         transform: translate(-50%, -50%);
+
         pointer-events: none;
+
         filter: drop-shadow(
-            0 0 20px rgba(229, 184, 75, 0.25)
+            0 0 25px rgba(229, 184, 75, 0.35)
         );
     }
 
@@ -140,8 +145,7 @@
     }
 
     .hero-button,
-    .read-button,
-    .contact-button {
+    .read-button {
         display: inline-block;
         background: #b88727;
         color: white;
@@ -154,8 +158,7 @@
     }
 
     .hero-button:hover,
-    .read-button:hover,
-    .contact-button:hover {
+    .read-button:hover {
         background: #d5a63d;
     }
 
@@ -520,13 +523,14 @@
 
         .hero-logo {
             width: 340px;
-            opacity: 0.10;
+            opacity: 0.30;
         }
 
         .social-button {
             width: 100%;
             max-width: 330px;
         }
+
     }
 
 </style>
@@ -574,7 +578,7 @@
     <img
         class="hero-logo"
         src="file_00000000062881f4a1e30f44aa45daa7.png"
-        alt="">
+        alt="Mighty Productions Logo">
 
 
     <div class="hero-content">
@@ -634,8 +638,6 @@
 
     <div class="books-container">
 
-
-        <!-- DEFIANT HEARTS -->
 
         <article class="book-card">
 
@@ -774,7 +776,7 @@
 
 
 <!-- =========================
-     EXCERPT READER
+     EXCERPT
 ========================= -->
 
 <div
@@ -888,7 +890,7 @@
 
 
 <!-- =========================
-     CONTACT / SOCIAL MEDIA
+     CONTACT
 ========================= -->
 
 <section
@@ -914,8 +916,6 @@
     <div class="social-links">
 
 
-        <!-- FACEBOOK -->
-
         <a
             href="https://www.facebook.com/profile.php?id=61593112052913"
             target="_blank"
@@ -926,8 +926,6 @@
 
         </a>
 
-
-        <!-- INSTAGRAM -->
 
         <a
             href="https://www.instagram.com/nosretep3?igsh=czZraXQxbTNxOWFs"
@@ -976,7 +974,6 @@
 ========================= -->
 
 <script>
-
 
     function showBookInfo() {
 
