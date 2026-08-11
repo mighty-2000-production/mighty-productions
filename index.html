@@ -1,6 +1,7 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Mighty Productions | Storybooks</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mighty Productions | Storybooks</title>
 
 <style>
 
@@ -20,7 +21,10 @@
         color: white;
     }
 
-    /* NAVIGATION */
+
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     .navbar {
         background: #09070a;
@@ -64,7 +68,9 @@
     }
 
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
         min-height: 85vh;
@@ -81,7 +87,7 @@
                 rgba(10, 5, 12, 0.72),
                 rgba(10, 5, 12, 0.92)
             ),
-            url("images/defiant-hearts.png");
+            url("defiant-hearts%20(1).png");
 
         background-size: cover;
         background-position: center;
@@ -96,7 +102,9 @@
         left: 50%;
         transform: translate(-50%, -50%);
         pointer-events: none;
-        filter: drop-shadow(0 0 20px rgba(229, 184, 75, 0.25));
+        filter: drop-shadow(
+            0 0 20px rgba(229, 184, 75, 0.25)
+        );
     }
 
     .hero-content {
@@ -152,7 +160,9 @@
     }
 
 
-    /* BOOKS */
+    /* =========================
+       BOOKS
+    ========================= */
 
     .books-section {
         padding: 80px 7%;
@@ -181,7 +191,9 @@
     }
 
 
-    /* BOOK CARD */
+    /* =========================
+       BOOK CARD
+    ========================= */
 
     .books-container {
         display: flex;
@@ -234,7 +246,9 @@
     }
 
 
-    /* BOOK INFORMATION */
+    /* =========================
+       BOOK INFORMATION
+    ========================= */
 
     .book-info-box {
         display: none;
@@ -268,7 +282,9 @@
     }
 
 
-    /* EXCERPT READER */
+    /* =========================
+       EXCERPT READER
+    ========================= */
 
     #excerpt-overlay {
         position: fixed;
@@ -332,11 +348,6 @@
         color: #8d6b22;
     }
 
-    .excerpt-box .end-excerpt::first-letter {
-        font-size: 18px;
-        font-weight: normal;
-    }
-
     .excerpt-box button {
         display: block;
         margin: 40px auto 0;
@@ -354,7 +365,9 @@
     }
 
 
-    /* ABOUT */
+    /* =========================
+       ABOUT
+    ========================= */
 
     .about-section {
         padding: 90px 10%;
@@ -371,7 +384,9 @@
     }
 
 
-    /* CONTACT */
+    /* =========================
+       CONTACT
+    ========================= */
 
     .contact-section {
         padding: 90px 10%;
@@ -383,14 +398,41 @@
         margin-bottom: 25px;
     }
 
-    .contact-message {
-        display: none;
-        margin-top: 25px;
-        color: #e5b84b;
+
+    /* =========================
+       SOCIAL MEDIA
+    ========================= */
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+
+    .social-button {
+        display: inline-block;
+        padding: 14px 24px;
+        border-radius: 6px;
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        border: 1px solid #8d6b22;
+        background: #1b141d;
+        transition: 0.3s ease;
+    }
+
+    .social-button:hover {
+        background: #b88727;
+        transform: translateY(-2px);
     }
 
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
         background: #09070a;
@@ -411,7 +453,9 @@
     }
 
 
-    /* PHONE */
+    /* =========================
+       PHONE
+    ========================= */
 
     @media (max-width: 700px) {
 
@@ -478,11 +522,18 @@
             width: 340px;
             opacity: 0.10;
         }
+
+        .social-button {
+            width: 100%;
+            max-width: 330px;
+        }
     }
 
 </style>
 
-</head><body><!-- NAVIGATION -->
+</head><body><!-- =========================
+     NAVIGATION
+========================= -->
 
 <header class="navbar">
 
@@ -499,6 +550,7 @@
 
     </div>
 
+
     <nav>
 
         <a href="#home">Home</a>
@@ -511,7 +563,10 @@
 </header>
 
 
-<!-- HERO -->
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section id="home" class="hero">
 
@@ -554,7 +609,10 @@
 </section>
 
 
-<!-- BOOKS -->
+
+<!-- =========================
+     BOOKS
+========================= -->
 
 <section
     id="books"
@@ -577,7 +635,10 @@
     <div class="books-container">
 
 
+        <!-- DEFIANT HEARTS -->
+
         <article class="book-card">
+
 
             <div class="book-cover">
 
@@ -609,6 +670,7 @@
                     Published by Mighty Productions
                 </p>
 
+
                 <button
                     class="read-button"
                     onclick="showBookInfo()">
@@ -622,6 +684,7 @@
         </article>
 
     </div>
+
 
 
     <!-- BOOK INFORMATION -->
@@ -638,21 +701,28 @@
 
         </button>
 
+
         <h2>
             Defiant Hearts
         </h2>
+
 
         <p class="author">
             By Nosretep
         </p>
 
+
         <p class="publisher">
             Published by Mighty Productions
         </p>
 
+
         <p>
-            <strong>About the book:</strong>
+            <strong>
+                About the book:
+            </strong>
         </p>
+
 
         <p>
             Donald and Maggy are two high-school
@@ -660,6 +730,7 @@
             despite coming from completely
             different worlds.
         </p>
+
 
         <p>
             Donald is a poor orphan, while Maggy
@@ -670,6 +741,7 @@
             protect what they share.
         </p>
 
+
         <p>
             With family opposition, difficult
             choices and an uncertain future
@@ -678,12 +750,14 @@
             that refuses to surrender.
         </p>
 
+
         <p>
             <em>
                 A story of young love, courage,
                 sacrifice and determination.
             </em>
         </p>
+
 
         <button
             class="read-button"
@@ -698,7 +772,10 @@
 </section>
 
 
-<!-- EXCERPT READER -->
+
+<!-- =========================
+     EXCERPT READER
+========================= -->
 
 <div
     id="excerpt-overlay"
@@ -706,51 +783,66 @@
 
     <div class="excerpt-box">
 
+
         <h2>
             Defiant Hearts
         </h2>
+
 
         <p class="author">
             By Nosretep
         </p>
 
+
         <h3>
             Chapter One
         </h3>
 
-        <p>
-            The evening sky was slowly turning dark as the last
-            rays of sunlight disappeared beyond the horizon.
-            Somewhere in the distance, the sound of footsteps
-            echoed through the quiet street.
-        </p>
 
         <p>
-            She stood there silently, holding back the tears
-            that had been gathering in her eyes. Life had never
-            been easy for her, but she had learned one important
-            lesson: sometimes the heart must remain strong even
-            when everything around you seems to be falling apart.
+            The evening sky was slowly turning dark as
+            the last rays of sunlight disappeared beyond
+            the horizon. Somewhere in the distance,
+            the sound of footsteps echoed through the
+            quiet street.
         </p>
 
-        <p>
-            She took a deep breath and looked ahead. She knew
-            that whatever happened next would change everything.
-            There was fear in her heart, but there was also
-            something stronger — determination.
-        </p>
 
         <p>
-            Somewhere beyond the darkness was a new beginning,
-            and she was determined to find it.
+            She stood there silently, holding back the
+            tears that had been gathering in her eyes.
+            Life had never been easy for her, but she
+            had learned one important lesson: sometimes
+            the heart must remain strong even when
+            everything around you seems to be falling
+            apart.
         </p>
+
+
+        <p>
+            She took a deep breath and looked ahead.
+            She knew that whatever happened next would
+            change everything. There was fear in her
+            heart, but there was also something stronger
+            — determination.
+        </p>
+
+
+        <p>
+            Somewhere beyond the darkness was a new
+            beginning, and she was determined to find it.
+        </p>
+
 
         <p class="end-excerpt">
             — End of Excerpt —
         </p>
 
+
         <button onclick="closeExcerpt()">
+
             Close Excerpt
+
         </button>
 
     </div>
@@ -758,7 +850,10 @@
 </div>
 
 
-<!-- ABOUT -->
+
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section
     id="about"
@@ -768,15 +863,18 @@
         OUR STORY
     </p>
 
+
     <h2>
         About Mighty Productions
     </h2>
+
 
     <p>
         Mighty Productions is a creative platform
         dedicated to bringing meaningful, emotional
         and inspiring stories to readers.
     </p>
+
 
     <p>
         Every story has a voice.
@@ -788,7 +886,10 @@
 </section>
 
 
-<!-- CONTACT -->
+
+<!-- =========================
+     CONTACT / SOCIAL MEDIA
+========================= -->
 
 <section
     id="contact"
@@ -798,37 +899,56 @@
         GET IN TOUCH
     </p>
 
+
     <h2>
-        Contact Mighty Productions
+        Connect With Us
     </h2>
 
+
     <p>
-        Have a question, suggestion or story
-        you'd like to share?
+        Follow Mighty Productions and stay connected
+        with our stories, books and updates.
     </p>
 
-    <button
-        class="contact-button"
-        onclick="showContact()">
 
-        Contact Us
+    <div class="social-links">
 
-    </button>
 
-    <div
-        id="contactMessage"
-        class="contact-message">
+        <!-- FACEBOOK -->
 
-        <p>
-            Contact information will be added soon.
-        </p>
+        <a
+            href="https://www.facebook.com/profile.php?id=61593112052913"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-button">
+
+            📘 Facebook — Mighty Productions
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            href="https://www.instagram.com/nosretep3?igsh=czZraXQxbTNxOWFs"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-button">
+
+            📸 Instagram — Nosretep
+
+        </a>
+
 
     </div>
 
 </section>
 
 
-<!-- FOOTER -->
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -836,9 +956,11 @@
         Mighty Productions
     </h3>
 
+
     <p>
         Where stories find a voice.
     </p>
+
 
     <p>
         © 2026 Mighty Productions.
@@ -848,9 +970,13 @@
 </footer>
 
 
-<!-- JAVASCRIPT -->
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
+
 
     function showBookInfo() {
 
@@ -862,13 +988,6 @@
     function hideBookInfo() {
 
         document.getElementById("bookInfo").style.display = "none";
-
-    }
-
-
-    function showContact() {
-
-        document.getElementById("contactMessage").style.display = "block";
 
     }
 
