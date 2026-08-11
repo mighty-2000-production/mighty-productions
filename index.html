@@ -59,7 +59,7 @@
     nav a {
         color: white;
         text-decoration: none;
-        margin-left: 20px;
+        margin-left: 18px;
         font-size: 15px;
     }
 
@@ -73,58 +73,72 @@
     ========================= */
 
     .hero {
-        min-height: 85vh;
+        min-height: 88vh;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 50px 20px;
+        padding: 60px 20px;
         position: relative;
         overflow: hidden;
 
         background:
             linear-gradient(
-                rgba(10, 5, 12, 0.78),
-                rgba(10, 5, 12, 0.92)
+                rgba(10, 5, 12, 0.76),
+                rgba(10, 5, 12, 0.93)
             );
     }
 
+    /*
+       LARGE HERO LOGO
+    */
+
     .hero-logo {
         position: absolute;
-        width: 520px;
-        max-width: 80%;
+
+        width: 700px;
+        height: 700px;
+
+        max-width: 90vw;
+        max-height: 90vh;
+
+        object-fit: contain;
+
         opacity: 0.30;
+
         top: 50%;
         left: 50%;
+
         transform: translate(-50%, -50%);
+
         pointer-events: none;
 
         filter: drop-shadow(
-            0 0 25px rgba(229, 184, 75, 0.35)
+            0 0 35px rgba(229, 184, 75, 0.35)
         );
     }
 
     .hero-content {
-        max-width: 800px;
+        max-width: 850px;
         position: relative;
         z-index: 2;
     }
 
     .welcome {
         color: #e5b84b;
-        letter-spacing: 5px;
+        letter-spacing: 6px;
         font-size: 14px;
         margin-bottom: 20px;
     }
 
     .hero h1 {
-        font-size: 60px;
+        font-size: 62px;
         margin-bottom: 15px;
     }
 
     .hero-tagline {
         color: #e5b84b;
-        font-size: 19px;
+        font-size: 20px;
         font-style: italic;
         letter-spacing: 1px;
         margin-bottom: 20px;
@@ -161,7 +175,7 @@
 
     .books-section,
     .author-section {
-        padding: 80px 7%;
+        padding: 85px 7%;
         text-align: center;
     }
 
@@ -189,41 +203,105 @@
 
 
     /* =========================
-       BOOK CARD
+       BOOK GRID
     ========================= */
 
     .books-container {
-        display: flex;
-        justify-content: center;
-        gap: 35px;
-        flex-wrap: wrap;
-        margin-top: 50px;
+        display: grid;
+        grid-template-columns:
+            repeat(auto-fit, minmax(250px, 1fr));
+
+        gap: 30px;
+
+        max-width: 1200px;
+        margin: 50px auto 0;
     }
+
+
+    /* =========================
+       BOOK CARD
+    ========================= */
 
     .book-card {
         background: #1b141d;
-        width: 340px;
         padding: 20px;
         border-radius: 10px;
         border: 1px solid #3d303e;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+
+        box-shadow:
+            0 10px 30px rgba(0,0,0,0.4);
+
+        transition: transform 0.3s ease,
+                    border-color 0.3s ease;
+    }
+
+    .book-card:hover {
+        transform: translateY(-6px);
+        border-color: #8d6b22;
     }
 
     .book-cover {
         width: 100%;
+        aspect-ratio: 2 / 3;
         overflow: hidden;
         border-radius: 6px;
-        margin-bottom: 25px;
+        margin-bottom: 22px;
+        background: #100b12;
+        position: relative;
     }
 
     .book-cover img {
         width: 100%;
+        height: 100%;
         display: block;
-        height: auto;
+        object-fit: cover;
     }
 
+
+    /* =========================
+       COMING SOON CARDS
+    ========================= */
+
+    .coming-cover {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        border: 1px solid #8d6b22;
+
+        background:
+            linear-gradient(
+                145deg,
+                #171017,
+                #241b25
+            );
+    }
+
+    .coming-cover span {
+        font-size: 40px;
+        color: #e5b84b;
+        margin-bottom: 15px;
+    }
+
+    .coming-cover strong {
+        color: #e5b84b;
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    .coming-cover small {
+        color: #aaa;
+        margin-top: 8px;
+    }
+
+
+    /* =========================
+       BOOK INFO
+    ========================= */
+
     .book-info h3 {
-        font-size: 28px;
+        font-size: 27px;
         margin-bottom: 8px;
     }
 
@@ -242,9 +320,20 @@
         font-size: 14px;
     }
 
+    .status {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 20px;
+        background: #5b2020;
+        color: #f3ead8;
+        font-size: 12px;
+        letter-spacing: 1px;
+        margin-bottom: 18px;
+    }
+
 
     /* =========================
-       BOOK INFORMATION
+       BOOK INFORMATION BOX
     ========================= */
 
     .book-info-box {
@@ -297,10 +386,15 @@
         min-height: 90vh;
         margin: 10px auto;
         padding: 55px 50px;
+
         background: #f3ead8;
         color: #2a2025;
+
         border-radius: 4px;
-        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
+
+        box-shadow:
+            0 15px 50px rgba(0,0,0,0.7);
+
         text-align: center;
     }
 
@@ -316,7 +410,7 @@
         margin-bottom: 45px;
     }
 
-    .coming-soon {
+    .coming-soon-text {
         color: #30272b;
         font-size: 20px;
         line-height: 1.9;
@@ -370,10 +464,14 @@
         max-width: 750px;
         margin: 35px auto 0;
         padding: 40px;
+
         background: #1b141d;
+
         border: 1px solid #3d303e;
         border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+        box-shadow:
+            0 10px 30px rgba(0,0,0,0.35);
     }
 
     .author-box h3 {
@@ -393,8 +491,10 @@
         display: inline-block;
         margin-top: 10px;
         padding: 12px 22px;
+
         background: #b88727;
         color: white;
+
         text-decoration: none;
         border-radius: 5px;
     }
@@ -430,12 +530,17 @@
     .social-button {
         display: inline-block;
         padding: 14px 24px;
+
         border-radius: 6px;
+
         text-decoration: none;
         color: white;
+
         font-size: 16px;
+
         border: 1px solid #8d6b22;
         background: #1b141d;
+
         transition: 0.3s ease;
     }
 
@@ -489,8 +594,12 @@
         }
 
         nav a {
-            margin: 0 7px;
-            font-size: 13px;
+            margin: 0 6px;
+            font-size: 12px;
+        }
+
+        .hero {
+            min-height: 80vh;
         }
 
         .hero h1 {
@@ -505,6 +614,12 @@
             font-size: 17px;
         }
 
+        .hero-logo {
+            width: 90vw;
+            height: 90vw;
+            opacity: 0.30;
+        }
+
         .books-section h2,
         .author-section h2,
         .about-section h2,
@@ -512,9 +627,13 @@
             font-size: 32px;
         }
 
+        .books-container {
+            grid-template-columns: 1fr;
+            max-width: 360px;
+        }
+
         .book-card {
             width: 100%;
-            max-width: 360px;
         }
 
         .excerpt-box {
@@ -525,13 +644,8 @@
             font-size: 32px;
         }
 
-        .coming-soon {
+        .coming-soon-text {
             font-size: 17px;
-        }
-
-        .hero-logo {
-            width: 340px;
-            opacity: 0.30;
         }
 
         .author-box {
@@ -547,7 +661,9 @@
 
 </style>
 
-</head><body><!-- NAVIGATION -->
+</head><body><!-- =========================
+     NAVIGATION
+========================= -->
 
 <header class="navbar">
 
@@ -579,14 +695,18 @@
 
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section id="home" class="hero">
+
 
     <img
         class="hero-logo"
         src="file_00000000062881f4a1e30f44aa45daa7.png"
         alt="Mighty Productions Logo">
+
 
     <div class="hero-content">
 
@@ -594,18 +714,22 @@
             WELCOME TO
         </p>
 
+
         <h1>
             Mighty Productions
         </h1>
+
 
         <p class="hero-tagline">
             Where stories find a voice.
         </p>
 
+
         <p class="tagline">
             Stories that touch the heart,
             inspire the mind and stay forever.
         </p>
+
 
         <a
             href="#books"
@@ -621,29 +745,40 @@
 
 
 
-<!-- BOOKS -->
+<!-- =========================
+     BOOK COLLECTION
+========================= -->
 
 <section
     id="books"
     class="books-section">
 
+
     <p class="section-label">
         OUR COLLECTION
     </p>
 
+
     <h2>
-        Featured Storybook
+        Storybooks
     </h2>
+
 
     <p class="section-description">
         Discover powerful stories filled with
         love, courage, friendship and emotion.
+        More stories will be added to our collection
+        as they become available.
     </p>
 
 
     <div class="books-container">
 
+
+        <!-- BOOK ONE -->
+
         <article class="book-card">
+
 
             <div class="book-cover">
 
@@ -656,13 +791,21 @@
 
             <div class="book-info">
 
+
+                <span class="status">
+                    COMING SOON
+                </span>
+
+
                 <h3>
                     Defiant Hearts
                 </h3>
 
+
                 <p class="author">
                     By Nosretep
                 </p>
+
 
                 <p>
                     A story of young love, courage
@@ -670,6 +813,7 @@
                     teenagers whose hearts are tested
                     by circumstances beyond their control.
                 </p>
+
 
                 <p class="publisher">
                     Published by Mighty Productions
@@ -688,6 +832,136 @@
 
         </article>
 
+
+
+        <!-- FUTURE BOOK TWO -->
+
+        <article class="book-card">
+
+
+            <div class="book-cover coming-cover">
+
+                <span>
+                    📖
+                </span>
+
+                <strong>
+                    COMING SOON
+                </strong>
+
+                <small>
+                    New story
+                </small>
+
+            </div>
+
+
+            <div class="book-info">
+
+                <h3>
+                    Coming Soon
+                </h3>
+
+                <p class="author">
+                    Mighty Productions
+                </p>
+
+                <p>
+                    A new story is currently being
+                    prepared for our readers.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FUTURE BOOK THREE -->
+
+        <article class="book-card">
+
+
+            <div class="book-cover coming-cover">
+
+                <span>
+                    📖
+                </span>
+
+                <strong>
+                    COMING SOON
+                </strong>
+
+                <small>
+                    New story
+                </small>
+
+            </div>
+
+
+            <div class="book-info">
+
+                <h3>
+                    Coming Soon
+                </h3>
+
+                <p class="author">
+                    Mighty Productions
+                </p>
+
+                <p>
+                    Another story will soon join
+                    our growing collection.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FUTURE BOOK FOUR -->
+
+        <article class="book-card">
+
+
+            <div class="book-cover coming-cover">
+
+                <span>
+                    📖
+                </span>
+
+                <strong>
+                    COMING SOON
+                </strong>
+
+                <small>
+                    New story
+                </small>
+
+            </div>
+
+
+            <div class="book-info">
+
+                <h3>
+                    Coming Soon
+                </h3>
+
+                <p class="author">
+                    Mighty Productions
+                </p>
+
+                <p>
+                    More stories, more characters
+                    and more unforgettable journeys.
+                </p>
+
+            </div>
+
+        </article>
+
+
     </div>
 
 
@@ -697,6 +971,7 @@
     <div
         id="bookInfo"
         class="book-info-box">
+
 
         <button
             class="close-button"
@@ -759,23 +1034,30 @@
 
 
 
-<!-- EXCERPT -->
+<!-- =========================
+     EXCERPT
+========================= -->
 
 <div
     id="excerpt-overlay"
     style="display: none;">
 
+
     <div class="excerpt-box">
+
 
         <h2>
             Defiant Hearts
         </h2>
 
+
         <p class="author">
             By Nosretep
         </p>
 
-        <p class="coming-soon">
+
+        <p class="coming-soon-text">
+
             The story is currently being prepared
             for publication.
 
@@ -783,7 +1065,9 @@
 
             The full reading experience will be
             available here soon.
+
         </p>
+
 
         <button onclick="closeExcerpt()">
 
@@ -797,25 +1081,31 @@
 
 
 
-<!-- ABOUT MIGHTY PRODUCTIONS -->
+<!-- =========================
+     ABOUT MIGHTY PRODUCTIONS
+========================= -->
 
 <section
     id="about"
     class="about-section">
 
+
     <p class="section-label">
         OUR STORY
     </p>
 
+
     <h2>
         About Mighty Productions
     </h2>
+
 
     <p>
         Mighty Productions is a creative platform
         dedicated to bringing meaningful, emotional
         and inspiring stories to readers.
     </p>
+
 
     <p>
         Every story has a voice.
@@ -824,180 +1114,24 @@
         someone feel something.
     </p>
 
+
 </section>
 
 
 
-<!-- ABOUT AUTHOR -->
+<!-- =========================
+     ABOUT AUTHOR
+========================= -->
 
 <section
     id="author"
     class="author-section">
 
+
     <p class="section-label">
         MEET THE AUTHOR
     </p>
 
-    <h2>
-        About Nosretep
-    </h2>
-
-
-    <div class="author-box">
-
-        <h3>
-            Nosretep
-        </h3>
-
-
-        <p>
-            Nosretep is a young Kenyan writer with
-            a passion for creating emotional stories
-            that explore love, courage, relationships
-            and the experiences that shape us.
-        </p>
-
-
-        <p>
-            Through storytelling, Nosretep seeks to
-            create characters and moments that readers
-            can connect with, remember and feel long
-            after turning the final page.
-        </p>
-
-
-        <p>
-            <em>
-                Every story begins with an idea.
-                Every idea deserves a voice.
-            </em>
-        </p>
-
-
-        <a
-            class="instagram-author"
-            href="https://www.instagram.com/nosretep3?igsh=czZraXQxbTNxOWFs"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            📸 Follow Nosretep on Instagram
-
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- CONTACT -->
-
-<section
-    id="contact"
-    class="contact-section">
-
-    <p class="section-label">
-        GET IN TOUCH
-    </p>
 
     <h2>
-        Connect With Us
-    </h2>
-
-    <p>
-        Follow Mighty Productions and stay connected
-        with our stories, books and updates.
-    </p>
-
-
-    <div class="social-links">
-
-        <a
-            href="https://www.facebook.com/profile.php?id=61593112052913"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-button">
-
-            📘 Facebook — Mighty Productions
-
-        </a>
-
-
-        <a
-            href="https://www.instagram.com/nosretep3?igsh=czZraXQxbTNxOWFs"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-button">
-
-            📸 Instagram — Nosretep
-
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <h3>
-        Mighty Productions
-    </h3>
-
-    <p>
-        Where stories find a voice.
-    </p>
-
-    <p>
-        © 2026 Mighty Productions.
-        All rights reserved.
-    </p>
-
-</footer>
-
-
-
-<!-- JAVASCRIPT -->
-
-<script>
-
-    function showBookInfo() {
-
-        document.getElementById("bookInfo").style.display = "block";
-
-    }
-
-
-    function hideBookInfo() {
-
-        document.getElementById("bookInfo").style.display = "none";
-
-    }
-
-
-    function readExcerpt() {
-
-        document.getElementById("excerpt-overlay").style.display = "block";
-
-        document.body.style.overflow = "hidden";
-
-    }
-
-
-    function closeExcerpt() {
-
-        document.getElementById("excerpt-overlay").style.display = "none";
-
-        document.body.style.overflow = "auto";
-
-    }
-
-</script>
-
-
-<script src="./script.js"></script>
-
-</body></html>
+   
